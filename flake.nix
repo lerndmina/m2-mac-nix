@@ -73,7 +73,7 @@
         dock.autohide = true;
         dock.persistent-apps = [
           "/Applications/Github Desktop.app"
-          "${pkgs.alacritty}/Applications/Alacritty.app"
+          "Applications/iTerm.app"
           "${pkgs.vscode}/Applications/Visual Studio Code.app"
           "/Applications/Vivaldi.app"
         ];
