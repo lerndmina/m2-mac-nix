@@ -72,10 +72,10 @@
         NSGlobalDomain."com.apple.swipescrolldirection" = false;
         dock.autohide = true;
         dock.persistent-apps = [
+          "/Applications/Vivaldi.app"
           "/Applications/Github Desktop.app"
           "Applications/iTerm.app"
           "${pkgs.vscode}/Applications/Visual Studio Code.app"
-          "/Applications/Vivaldi.app"
         ];
         dock.show-recents = false;
         dock.tilesize = 36;
