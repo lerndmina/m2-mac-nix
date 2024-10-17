@@ -106,6 +106,9 @@
         #!/bin/sh
         echo "Setting up tid and wid for sudo"
         sed -e 's/^#auth/auth/' /etc/pam.d/sudo_local.template | sudo tee /etc/pam.d/sudo_local
+
+        echo "Setting force touch value"
+        defaults write -g com.apple.trackpad.forceClick -int 1
       '';
 
       # Fix spotlight using macos Alias
