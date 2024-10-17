@@ -67,6 +67,7 @@
           "aldente"
           "openvpn-connect"
           "signal"
+          "deskreen"
         ];
         masApps = {
           "Dropover" = 1355679052;
