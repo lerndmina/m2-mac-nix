@@ -34,7 +34,7 @@
           pkgs.stow
           pkgs.youtube-music
           (pkgs.discord.override {
-            # remove any overrides that you don't want
+            # Mac will have to disable the checksum in privacy and security.
             withOpenASAR = true;
             withVencord = true;
           })
