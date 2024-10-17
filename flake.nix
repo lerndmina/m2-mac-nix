@@ -54,9 +54,14 @@
           "github"
           "iina"
           "vivaldi"
+          "github"
           "istat-menus"
           "middle"
           "iterm2"
+          "aldente"
+          "openvpn-connect"
+          "signal"
+          "discord"
         ];
         masApps = {
           "Dropover" = 1355679052;
@@ -73,7 +78,6 @@
         dock.autohide = true;
         dock.persistent-apps = [
           "/Applications/Vivaldi.app"
-          "/Applications/Github Desktop.app"
           "Applications/iTerm.app"
           "${pkgs.vscode}/Applications/Visual Studio Code.app"
         ];
@@ -85,6 +89,10 @@
         NSGlobalDomain.AppleInterfaceStyle = "Dark";
         NSGlobalDomain.KeyRepeat = 2;
         finder.FXPreferredViewStyle = "Nlsv";
+        NSGlobalDomain.AppleShowAllFiles = true;
+        NSGlobalDomain.AppleShowAllExtensions = true;
+        finder.ShowPathbar = true;
+        finder.ShowStatusBar = true;
       };
 
       # Run a script after the configuration is applied.
