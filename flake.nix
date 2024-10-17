@@ -32,6 +32,8 @@
           pkgs.wget
           pkgs.git
           pkgs.stow
+          pkgs.youtube-music
+          pkgs.discord
         ];
 
       fonts.packages = [
@@ -61,7 +63,6 @@
           "aldente"
           "openvpn-connect"
           "signal"
-          "discord"
         ];
         masApps = {
           "Dropover" = 1355679052;
