@@ -33,7 +33,11 @@
           pkgs.git
           pkgs.stow
           pkgs.youtube-music
-          pkgs.discord
+          (pkgs.discord.override {
+            # remove any overrides that you don't want
+            withOpenASAR = true;
+            withVencord = true;
+          })
         ];
 
       fonts.packages = [
