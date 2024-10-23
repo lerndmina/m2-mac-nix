@@ -38,6 +38,9 @@
             withOpenASAR = true;
             withVencord = true;
           })
+          pkgs.flameshot
+          pkgs.xsel
+          pkgs.zenity
         ];
 
       fonts.packages = [
@@ -67,12 +70,17 @@
           "aldente"
           "openvpn-connect"
           "signal"
-          "deskreen"
+          "buzz"
+          "transmit"
         ];
         masApps = {
           "Dropover" = 1355679052;
           "1Password Safari" = 1569813296;
           "Magnet" = 441258766;
+          "Pages" = 409201541;
+          "Keynote" = 409183694;
+          "Numbers" = 409203825;
+          "Action Shortcuts" = 1447884454;
         };
         onActivation.cleanup = "zap";
         onActivation.autoUpdate = true;
