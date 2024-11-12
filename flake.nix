@@ -33,14 +33,15 @@
           pkgs.git
           pkgs.stow
           pkgs.youtube-music
-          (pkgs.discord.override {
-            # Mac will have to disable the checksum in privacy and security.
-            withOpenASAR = true;
-            withVencord = true;
-          })
+          # (pkgs.discord.override {
+          #   # Mac will have to disable the checksum in privacy and security.
+          #   withOpenASAR = true;
+          #   withVencord = true;
+          # })
           pkgs.flameshot
           pkgs.xsel
           pkgs.zenity
+          pkgs.bun
         ];
 
       fonts.packages = [
@@ -71,6 +72,7 @@
           "openvpn-connect"
           "signal"
           "buzz"
+          "discord"
         ];
         masApps = {
           "Dropover" = 1355679052;
@@ -117,6 +119,10 @@
 
         echo "Setting force touch value"
         defaults write -g com.apple.trackpad.forceClick -int 1
+
+        echo "Disabling window re opening"
+        sudo chown root ~/Library/Preferences/ByHost/com.apple.loginwindow*
+        sudo chmod 000 ~/Library/Preferences/ByHost/com.apple.loginwindow*
       '';
 
       # Fix spotlight using macos Alias
