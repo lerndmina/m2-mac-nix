@@ -55,6 +55,7 @@
         enable = true;
         brews = [
           "mas"
+          "node"
         ];
         casks = [
           "1password"
