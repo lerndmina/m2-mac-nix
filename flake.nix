@@ -34,7 +34,7 @@
           pkgs.stow
           pkgs.youtube-music
           pkgs.openjdk
-          # (pkgs.discord.override {
+                    # (pkgs.discord.override {
           #   # Mac will have to disable the checksum in privacy and security.
           #   withOpenASAR = true;
           #   withVencord = true;
@@ -59,6 +59,7 @@
         brews = [
           "mas"
           "node"
+	 "coreutils"
 	        "cloudflared"
 	        "caddy"
         ];
