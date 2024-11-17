@@ -85,6 +85,7 @@
           "tunnelblick"
           "logseq"
           "fork"
+          "the-unarchiver"
         ];
         masApps = {
           "Dropover" = 1355679052;
