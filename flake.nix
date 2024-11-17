@@ -33,6 +33,7 @@
           pkgs.git
           pkgs.stow
           pkgs.youtube-music
+          pkgs.openjdk
           # (pkgs.discord.override {
           #   # Mac will have to disable the checksum in privacy and security.
           #   withOpenASAR = true;
@@ -42,6 +43,8 @@
           pkgs.xsel
           pkgs.zenity
           pkgs.bun
+          pkgs.btop
+          pkgs.openssh
         ];
 
       fonts.packages = [
@@ -56,8 +59,11 @@
         brews = [
           "mas"
           "node"
+	        "cloudflared"
+	        "caddy"
         ];
         casks = [
+          "docker"
           "1password"
           "1password-cli"
           "bartender"
@@ -74,6 +80,10 @@
           "signal"
           "buzz"
           "discord"
+          "utm"
+          "tunnelblick"
+          "logseq"
+          "fork"
         ];
         masApps = {
           "Dropover" = 1355679052;
@@ -92,14 +102,20 @@
 
       system.defaults = {
         NSGlobalDomain."com.apple.swipescrolldirection" = false;
-        dock.autohide = true;
+        dock.autohide = false;
         dock.persistent-apps = [
           "/Applications/Vivaldi.app"
           "Applications/iTerm.app"
           "${pkgs.vscode}/Applications/Visual Studio Code.app"
+          "/Applications/Safari.app"
+          "/Applications/1Password.app"
+          "/Applications/Signal.app"
+          "/Applications/Logseq.app"
+          "/Applications/Fork.app"
         ];
         dock.show-recents = false;
-        dock.tilesize = 36;
+        dock.tilesize = 50;
+        dock.orientation = "left";
         finder.CreateDesktop = false;
         loginwindow.GuestEnabled = false;
         NSGlobalDomain.AppleICUForce24HourTime = true;
@@ -117,6 +133,9 @@
         #!/bin/sh
         echo "Setting up tid and wid for sudo"
         sed -e 's/^#auth/auth/' /etc/pam.d/sudo_local.template | sudo tee /etc/pam.d/sudo_local
+
+        echo "Setting up ssh"
+        sudo systemsetup -setremotelogin on
 
         echo "Setting force touch value"
         defaults write -g com.apple.trackpad.forceClick -int 1
@@ -172,7 +191,7 @@
   {
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#simple
-    darwinConfigurations."Wilds-MacBook-Air" = nix-darwin.lib.darwinSystem {
+    darwinConfigurations."steves-Mac-mini" = nix-darwin.lib.darwinSystem {
       modules = [ 
         configuration
         nix-homebrew.darwinModules.nix-homebrew
@@ -180,7 +199,7 @@
           nix-homebrew = {
             enable = true;
             enableRosetta = true;
-            user = "wild";
+            user = "steve";
             mutableTaps = false;
             taps = {
               "homebrew/homebrew-core" = inputs.homebrew-core;
