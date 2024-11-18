@@ -42,6 +42,7 @@
           pkgs.xsel
           pkgs.zenity
           pkgs.bun
+          pkgs.pyenv
         ];
 
       fonts.packages = [
@@ -110,13 +111,14 @@
         NSGlobalDomain.AppleShowAllExtensions = true;
         finder.ShowPathbar = true;
         finder.ShowStatusBar = true;
+        dock.orientation = "bottom";
       };
 
       # Run a script after the configuration is applied.
       system.activationScripts.post = ''
         #!/bin/sh
         echo "Setting up tid and wid for sudo"
-        sed -e 's/^#auth/auth/' /etc/pam.d/sudo_local.template | sudo tee /etc/pam.d/sudo_local
+        curl -sL git.io/sudo-touchid | sh
 
         echo "Setting force touch value"
         defaults write -g com.apple.trackpad.forceClick -int 1
