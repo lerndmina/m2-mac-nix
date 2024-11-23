@@ -57,6 +57,7 @@
         brews = [
           "mas"
           "node"
+          "sshuttle"
         ];
         casks = [
           "1password"
@@ -84,7 +85,10 @@
           "Keynote" = 409183694;
           "Numbers" = 409203825;
           "Action Shortcuts" = 1447884454;
-          "Transmit" = 1436522307;
+          "AdGuard for Safari" = 1440147259;
+          "Auto HD + FPS for Youtube" = 1546729687;
+          "Tampermonkey" = 6738342400;
+          "Superagent" = 1568262835;
         };
         onActivation.cleanup = "zap";
         onActivation.autoUpdate = true;
@@ -95,7 +99,7 @@
         NSGlobalDomain."com.apple.swipescrolldirection" = false;
         dock.autohide = true;
         dock.persistent-apps = [
-          "/Applications/Vivaldi.app"
+          "/Applications/Safari.app"
           "Applications/iTerm.app"
           "${pkgs.vscode}/Applications/Visual Studio Code.app"
         ];
@@ -118,7 +122,7 @@
       system.activationScripts.post = ''
         #!/bin/sh
         echo "Setting up tid and wid for sudo"
-        curl -sL git.io/sudo-touchid | sh
+        sh <( curl -sL git.io/sudo-touch-id )
 
         echo "Setting force touch value"
         defaults write -g com.apple.trackpad.forceClick -int 1
@@ -126,6 +130,9 @@
         echo "Disabling window re opening"
         sudo chown root ~/Library/Preferences/ByHost/com.apple.loginwindow*
         sudo chmod 000 ~/Library/Preferences/ByHost/com.apple.loginwindow*
+
+        echo "Disabling gatekeeper"
+        sudo spctl --master-disable
       '';
 
       # Fix spotlight using macos Alias
