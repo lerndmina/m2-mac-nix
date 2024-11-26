@@ -45,6 +45,7 @@
           pkgs.bun
           pkgs.btop
           pkgs.openssh
+          pkgs.perl
         ];
 
       fonts.packages = [
@@ -59,9 +60,15 @@
         brews = [
           "mas"
           "node"
-	 "coreutils"
+	        "coreutils"
 	        "cloudflared"
 	        "caddy"
+          "colima"
+          "qemu"
+          "cmake"
+          "protobuf"
+          "rust"
+          "python@3.10"
         ];
         casks = [
           "docker"
